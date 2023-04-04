@@ -12,7 +12,6 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
-  list-style: none;
   background: rgb(14, 14, 200);
     background: linear-gradient(90deg, rgba(14, 14, 200, 1) 26%, rgba(5, 4, 83, 1) 61%, rgba(2, 0, 36, 1) 75%, rgba(102, 0, 255, 1) 94%);
 }
@@ -21,17 +20,19 @@ img {
   display: block;
   max-width: 100%;
 }
+
 ul{
-  display: flex;
-  justify-content: flex-start;
+  display: block;
+  flex-direction: column;
 }
+
 button{
   margin: 5px 5px;
   padding: 10px 10px;
   cursor:pointer;
   background-color: #fafafa;
   color: greenyellow;
-  transition: transform 1s ease;
+  transition: transform 0.8s ease;
   border: none;
   background: transparent;
  

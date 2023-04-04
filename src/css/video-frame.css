@@ -1,4 +1,7 @@
+
 #vimeo-player{
     display: block;
     margin: 0 auto;
+    /* border: 7px double #1C6EA4;
+    border-radius: 7px 7px 7px 7px; */
 }

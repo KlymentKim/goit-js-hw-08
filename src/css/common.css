@@ -32,12 +32,13 @@ button{
   background-color: #fafafa;
   color: red;
   text-transform: uppercase;
-  transition: transform .3s;
+  transition: transform .9s ease;
   border: none;
   background: transparent;
+  animation: button 2s ease-out infinite;
  
 }
-button:hover{
+ button:hover{
   background-color: chocolate;
   color: azure;
   outline: none;
@@ -46,4 +47,7 @@ button:hover{
   border-radius: 5px;
   margin-left: 2px;
   margin-right: 2px;
+}
+#submit:hover{
+  animation: none;
 }

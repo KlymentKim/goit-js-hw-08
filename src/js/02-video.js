@@ -1,11 +1,11 @@
+//timeupdate відстеження події timeupdate, що спрацьовує при оновленні часу відтворення.
+// Функція throttle з бібліотеки lodash.throttle застосовується,
+// щоб зменшити кількість записів часу в локальному сховищі:
+
 import Player from '@vimeo/player'; 
 import throttle from 'lodash.throttle'; 
 
 const player = new Player(document.querySelector('#vimeo-player'));
- 
-//timeupdate відстеження події timeupdate, що спрацьовує при оновленні часу відтворення.
-// Функція throttle з бібліотеки lodash.throttle застосовується,
-// щоб зменшити кількість записів часу в локальному сховищі:
 
 player.on('timeupdate', throttle((data) => {
   const currentTime = data.seconds;

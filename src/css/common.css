@@ -30,12 +30,10 @@ button{
   padding: 10px 10px;
   cursor:pointer;
   background-color: #fafafa;
-  color: red;
-  text-transform: uppercase;
-  transition: transform .9s ease;
+  color: greenyellow;
+  transition: transform 1s ease;
   border: none;
   background: transparent;
-  animation: button 2s ease-out infinite;
  
 }
  button:hover{

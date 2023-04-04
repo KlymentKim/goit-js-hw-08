@@ -1,22 +1,23 @@
-import throttle from 'lodash.throttle';
-import Vimeo from '@vimeo/player';  
+import Player from '@vimeo/player'; 
+import throttle from 'lodash.throttle'; 
 
-const iframe = document.querySelector('iframe') ;
-const player = new Vimeo.Player(iframe);
+const player = new Player(document.querySelector('#vimeo-player'));
  
-//timeupdate відстеження події timeupdate, що спрацьовує при оновленні часу відтворення. 
-// Функція throttle з бібліотеки lodash.throttle застосовується, 
+//timeupdate відстеження події timeupdate, що спрацьовує при оновленні часу відтворення.
+// Функція throttle з бібліотеки lodash.throttle застосовується,
 // щоб зменшити кількість записів часу в локальному сховищі:
 
-const saveCurrentTime = throttle(function () {
-    const time = player.getCurrentTime();
-    localStorage.setItem('videoplayer-current-time', time);
-  }, 1000);
-  
-  player.on('timeupdate', saveCurrentTime);
+player.on('timeupdate', throttle((data) => {
+  const currentTime = data.seconds;
+  // зберегти поточний час відтворення у локальне сховище
+  localStorage.setItem('videoplayer-current-time', currentTime);
+}, 1000));
 
-  //Щоб відновити час відтворення відео при перезавантаженні сторінки
+ //Щоб відновити час відтворення відео при перезавантаженні сторінки
 const savedTime = localStorage.getItem('videoplayer-current-time');
 if (savedTime) {
   player.setCurrentTime(savedTime);
 }
+
+
+

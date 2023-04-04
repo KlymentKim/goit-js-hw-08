@@ -48,6 +48,13 @@ button{
   margin-left: 2px;
   margin-right: 2px;
 }
+#submit{
+  transform: none;
+  border:1px;
+  color:wheat;
+  background-color:darkslategrey;
+  border-radius: 5px;
+}
 #submit:hover{
-  animation: none;
+  color: yellow;
 }

@@ -1,41 +1,47 @@
 import throttle from 'lodash.throttle';
 
-const form = document.getElementsByClassName('feedback-form');
-const emailInput = document.getElementsByTagName('input[name="email]');
-const messageInput  = document.getElementsByTagName('textarea[name="message"]');
 
-// Функція, яка записує дані форми в локальне сховище
-const saveState = _.throttle(() => {
-  const state = {
+const form = document.querySelector('.feedback-form');
+const emailInput = document.querySelector('[name="email]');
+const messageInput  = document.querySelector('[name="message"]');
+
+// функція, яка зберігає стан форми в локальне сховище
+const saveFormState = throttle(() => {
+  const formState = {
     email: emailInput.value,
-    message: messageInput.value
+    message: messageInput.value,
   };
-  localStorage.setItem('feedback-form-state', JSON.stringify(state));
+  localStorage.setItem('feedback-form-state', JSON.stringify(formState));
 }, 500);
 
-// Функція, яка заповнює форму даними з локального сховища
-const restoreState = () => {
-  const state = JSON.parse(localStorage.getItem('feedback-form-state')) || {};
-  emailInput.value = state.email || '';
-  messageInput.value = state.message || '';
+// функція, яка заповнює поля форми зі стану в локальному сховищі
+const loadFormState = () => {
+  const formState = JSON.parse(localStorage.getItem('feedback-form-state'));
+  if (formState) {
+    emailInput.value = formState.email;
+    messageInput.value = formState.message;
+  } else {
+    emailInput.value = '';
+    messageInput.value = '';
+  }
 };
 
-// Відновлюємо стан форми під час завантаження сторінки
-restoreState();
+// заповнюємо поля форми зі стану в локальному сховищі при завантаженні сторінки
+loadFormState();
 
-// Зберігаємо стан форми при введенні даних користувачем
-form.addEventListener('input', saveState);
+// зберігаємо стан форми в локальне сховище при введенні користувачем
+form.addEventListener('input', saveFormState);
 
-// Очищуємо сховище та форму після сабміту форми
+// оброблюємо сабміт форми
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const state = {
-    email: '',
-    message: ''
+  const formState = {
+    email: emailInput.value,
+    message: messageInput.value,
   };
-  localStorage.setItem('feedback-form-state', JSON.stringify(state));
+  console.log(formState);
+  localStorage.removeItem('feedback-form-state');
   emailInput.value = '';
   messageInput.value = '';
-  console.log('Form submitted:', state);
 });
 

@@ -1,9 +1,8 @@
 import throttle from 'lodash.throttle';
 
-
 const form = document.querySelector('.feedback-form');
-const emailInput = document.querySelector('[name="email]');
-const messageInput  = document.querySelector('[name="message"]');
+const emailInput = document.querySelector('.feedback-form input');
+const messageInput  = document.querySelector('.feedback-form textarea');
 
 // функція, яка зберігає стан форми в локальне сховище
 const saveFormState = throttle(() => {
@@ -41,7 +40,8 @@ form.addEventListener('submit', (event) => {
   };
   console.log(formState);
   localStorage.removeItem('feedback-form-state');
-  emailInput.value = '';
-  messageInput.value = '';
+  // emailInput.value = '';
+  // messageInput.value = '';
+  form.reset();
 });
 

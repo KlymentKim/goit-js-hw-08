@@ -8,10 +8,10 @@ const gallery = document.querySelector('.gallery');
 function createGalleryMarkup(items) {
   return items.map(({ preview, original, description}) => {
     return `
-      <li class="gallery-item">
-        <a class="gallery-link" href="${original}">
+      <li class="gallery_item">
+        <a class="gallery_link" href="${original}">
           <img
-            class="gallery-image"
+            class="gallery_image"
             src="${preview}"
             alt="${description}"
           />

@@ -35,8 +35,8 @@ form.addEventListener('input', saveFormState);
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const formState = {
-    email: emailInput.value,
-    message: messageInput.value,
+    email: emailInput.email.value,
+    message: messageInput.message.value,
   };
   console.log(formState);
   localStorage.removeItem('feedback-form-state');

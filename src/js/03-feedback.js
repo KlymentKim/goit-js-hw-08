@@ -1,8 +1,8 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
-const emailInput = document.querySelector('.feedback-form input');
-const messageInput  = document.querySelector('.feedback-form textarea');
+const emailInput = document.getElementsByTagName('input');
+const messageInput  = document.getElementsByTagName('textarea');
 
 // функція, яка зберігає стан форми в локальне сховище
 const saveFormState = throttle(() => {

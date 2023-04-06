@@ -25,20 +25,20 @@ const loadFormState = () => {
     messageInput.value = '';
   }
 };
-
+// зберігаємо стан форми в локальне сховище при введенні користувачем
+form.addEventListener('input', saveFormState);
 // заповнюємо поля форми зі стану в локальному сховищі при завантаженні сторінки
 loadFormState();
 
-// зберігаємо стан форми в локальне сховище при введенні користувачем
-form.addEventListener('input', saveFormState);
+
 
 // оброблюємо сабміт форми
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   
    // Перевірити, чи заповнені всі поля
-    if (emailInput.value === '' || messageInput.value === '') {
-    alert(`Поля Email та Message повинні бути заповнені`);
+    if (emailInput.email.value === '' || messageInput.message.value === '') {
+    alert(`Поля Email та Message повинні бути заповнені!!!`);
     return;
   }
 

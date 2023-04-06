@@ -1,15 +1,16 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
-const emailInput = document.getElementsByTagName('input');
-const messageInput  = document.getElementsByTagName('textarea');
+ const emailInput = document.getElementsByTagName('input');
+  const messageInput = document.getElementsByTagName('textarea');
 
 // функція, яка зберігає стан форми в локальне сховище
 const saveFormState = throttle(() => {
-  const formState = {
-    email: emailInput.value,
-    message: messageInput.value,
+    const formState = {
+    email: emailInput.email.value,
+    message: messageInput.message.value,
   };
+  console.log(formState);
   localStorage.setItem('feedback-form-state', JSON.stringify(formState));
 }, 500);
 
@@ -34,6 +35,15 @@ form.addEventListener('input', saveFormState);
 // оброблюємо сабміт форми
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+   const emailCheckSring = form.email.value;
+   const messageCheckString= form.message.value;
+  
+   // Перевірити, чи заповнені всі поля
+    if (emailCheckSring === '' || messageCheckString === '') {
+    alert(`Поля Email та Message повинні бути заповнені`);
+    return;
+  }
+
   const formState = {
     email: emailInput.email.value,
     message: messageInput.message.value,

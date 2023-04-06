@@ -18,18 +18,17 @@ const saveFormState = throttle(() => {
 const loadFormState = () => {
   const stateForm = JSON.parse(localStorage.getItem(keyStorageInfo));
   if (stateForm) {
-    form.elements.value = stateForm.email.value;
-    form.elements.value = stateForm.message.value;
+    form.elements.email.value = stateForm.email.value;
+    form.elements.message.value = stateForm.message.value;
   } else {
-    form.elements.value = '';
-    form.elements.value = '';
+    form.elements.email.value = '';
+    form.elements.message.value = '';
   }
 };
-// зберігаємо стан форми в локальне сховище при введенні користувачем
-form.addEventListener('input', saveFormState);
 // заповнюємо поля форми зі стану в локальному сховищі при завантаженні сторінки
 loadFormState();
-
+// зберігаємо стан форми в локальне сховище при введенні користувачем
+form.addEventListener('input', saveFormState);
 
 
 // оброблюємо сабміт форми
@@ -47,9 +46,7 @@ form.addEventListener('submit', (event) => {
     message: form.elements.message.value,
   };
    localStorage.removeItem(keyStorageInfo);
-  // emailInput.value = '';
-  // messageInput.value = '';
-  console.log(`Form data: `,formState);
-  form.reset();
+   console.log(`Form data: `,formState);
+   form.reset();
 });
 

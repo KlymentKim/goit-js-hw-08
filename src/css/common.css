@@ -12,8 +12,9 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
-  background: rgb(14, 14, 200);
-  background: linear-gradient(90deg, rgba(14, 14, 200, 1) 26%, rgba(5, 4, 83, 1) 61%, rgba(2, 0, 36, 1) 75%, rgba(102, 0, 255, 1) 94%);
+   background-image: url('https://wallpaperaccess.com/full/1555163.jpg');
+  /* background: rgb(14, 14, 200);
+  background: linear-gradient(90deg, rgba(14, 14, 200, 1) 26%, rgba(5, 4, 83, 1) 61%, rgba(2, 0, 36, 1) 75%, rgba(102, 0, 255, 1) 94%); */
 }
 
 img {

@@ -1,5 +1,6 @@
 #vimeo-player{
     display: block;
-    margin: 0 auto;
+    flex-direction:column;
+    /* margin: 0 auto; */
     border: thick double #32a1ce;
 }

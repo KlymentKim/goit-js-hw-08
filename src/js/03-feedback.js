@@ -8,8 +8,8 @@ const keyStorageInfo = 'feedback-form-state';
 // функція, яка зберігає стан форми в локальне сховище
 const saveFormState = throttle(() => {
     const stateForm = {
-    email: emailInput.email.value,
-    message: messageInput.message.value,
+    email: form.elements.email.value,
+    message: form.elements.message.value,
   };
    localStorage.setItem(keyStorageInfo, JSON.stringify(stateForm));
 }, 500);
@@ -18,11 +18,11 @@ const saveFormState = throttle(() => {
 const loadFormState = () => {
   const stateForm = JSON.parse(localStorage.getItem(keyStorageInfo));
   if (stateForm) {
-    emailInput.value = stateForm.email.value;
-    messageInput.value = stateForm.message.value;
+    form.elements.value = stateForm.email.value;
+    form.elements.value = stateForm.message.value;
   } else {
-    emailInput.value = '';
-    messageInput.value = '';
+    form.elements.value = '';
+    form.elements.value = '';
   }
 };
 // зберігаємо стан форми в локальне сховище при введенні користувачем
@@ -43,8 +43,8 @@ form.addEventListener('submit', (event) => {
   }
 
   const formState = {
-    email: emailInput.email.value,
-    message: messageInput.message.value,
+    email: form.elements.email.value,
+    message: form.elements.message.value,
   };
    localStorage.removeItem(keyStorageInfo);
   // emailInput.value = '';

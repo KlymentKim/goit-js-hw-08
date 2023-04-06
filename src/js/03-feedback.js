@@ -18,8 +18,8 @@ const saveFormState = throttle(() => {
 const loadFormState = () => {
   const stateForm = JSON.parse(localStorage.getItem(keyStorageInfo));
   if (stateForm) {
-    form.elements.email.value = stateForm.email.value;
-    form.elements.message.value = stateForm.message.value;
+    form.elements.email.value = stateForm.elements.email.value;
+    form.elements.message.value = stateForm.elements.message.value;
   } else {
     form.elements.email.value = '';
     form.elements.message.value = '';

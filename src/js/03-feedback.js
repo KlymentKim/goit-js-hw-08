@@ -1,25 +1,25 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
- const emailInput = document.getElementsByTagName('input');
-  const messageInput = document.getElementsByTagName('textarea');
+const emailInput = document.getElementsByTagName('input');
+const messageInput = document.getElementsByTagName('textarea');
+const keyStorageInfo = 'feedback-form-state';
 
 // функція, яка зберігає стан форми в локальне сховище
 const saveFormState = throttle(() => {
-    const formState = {
+    const stateForm = {
     email: emailInput.email.value,
     message: messageInput.message.value,
   };
-  console.log(formState);
-  localStorage.setItem('feedback-form-state', JSON.stringify(formState));
+   localStorage.setItem(keyStorageInfo, JSON.stringify(stateForm));
 }, 500);
 
 // функція, яка заповнює поля форми зі стану в локальному сховищі
 const loadFormState = () => {
-  const formState = JSON.parse(localStorage.getItem('feedback-form-state'));
-  if (formState) {
-    emailInput.value = formState.email;
-    messageInput.value = formState.message;
+  const stateForm = JSON.parse(localStorage.getItem(keyStorageInfo));
+  if (stateForm) {
+    emailInput.value = stateForm.email.value;
+    messageInput.value = stateForm.message.value;
   } else {
     emailInput.value = '';
     messageInput.value = '';
@@ -35,11 +35,9 @@ form.addEventListener('input', saveFormState);
 // оброблюємо сабміт форми
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-   const emailCheckSring = form.email.value;
-   const messageCheckString= form.message.value;
   
    // Перевірити, чи заповнені всі поля
-    if (emailCheckSring === '' || messageCheckString === '') {
+    if (emailInput.value === '' || messageInput.value === '') {
     alert(`Поля Email та Message повинні бути заповнені`);
     return;
   }
@@ -48,10 +46,10 @@ form.addEventListener('submit', (event) => {
     email: emailInput.email.value,
     message: messageInput.message.value,
   };
-  console.log(formState);
-  localStorage.removeItem('feedback-form-state');
+   localStorage.removeItem(keyStorageInfo);
   // emailInput.value = '';
   // messageInput.value = '';
+  console.log(`Form data: `,formState);
   form.reset();
 });
 

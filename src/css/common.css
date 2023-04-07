@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   
-  
 }
 
 body {
@@ -12,7 +11,7 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
-   background-image: url('https://wallpaperaccess.com/full/1555163.jpg');
+  background-image: url('https://wallpaperaccess.com/full/1555163.jpg');
   /* background: rgb(14, 14, 200);
   background: linear-gradient(90deg, rgba(14, 14, 200, 1) 26%, rgba(5, 4, 83, 1) 61%, rgba(2, 0, 36, 1) 75%, rgba(102, 0, 255, 1) 94%); */
 }
@@ -58,4 +57,10 @@ button{
 }
 #submit:hover{
   color: yellow;
+}
+#vimeo-player {
+  display: block;
+  flex-direction: column;
+  /* margin: 0 auto; */
+  border: thick double #32a1ce;
 }

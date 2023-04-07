@@ -11,8 +11,7 @@ const saveFormState = throttle(() => {
     email: emailInput.email,
     message: messageInput.message,
   };
-  localStorage.setItem(keyStorageInfo, JSON.stringify(stateForm));
-  console.log(stateForm.email.value);
+  console.log(localStorage.setItem(keyStorageInfo, JSON.stringify(stateForm)));
 }, 500);
 
 
@@ -22,7 +21,6 @@ const loadFormState = () => {
   if (stateForm) {
     emailInput.email= stateForm.email;
     messageInput.message = stateForm.message;
-     console.log(stateForm.email.value);
   } else {
     emailInput.email = '';
     messageInput.message = '';
@@ -30,7 +28,7 @@ const loadFormState = () => {
  
 };
 // заповнюємо поля форми зі стану в локальному сховищі при завантаженні сторінки
-// loadFormState();
+loadFormState();
 // зберігаємо стан форми в локальне сховище при введенні користувачем
 form.addEventListener('input', saveFormState);
 

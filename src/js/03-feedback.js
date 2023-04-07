@@ -11,7 +11,7 @@ const saveFormState = throttle(() => {
     email: emailInput.email,
     message: messageInput.message,
   };
-  console.log(localStorage.setItem(keyStorageInfo, JSON.stringify(stateForm)));
+  localStorage.setItem(keyStorageInfo, JSON.stringify(stateForm));
 }, 500);
 
 

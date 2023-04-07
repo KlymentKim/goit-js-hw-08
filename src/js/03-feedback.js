@@ -8,8 +8,8 @@ const keyStorageInfo = 'feedback-form-state';
 // функція, яка зберігає стан форми в локальне сховище
 const saveFormState = throttle(() => {
     const stateForm = {
-    email: emailInput.email,
-    message: messageInput.message,
+    email: emailInput.email.value,
+    message: messageInput.message.value,
   };
   localStorage.setItem(keyStorageInfo, JSON.stringify(stateForm));
 }, 500);

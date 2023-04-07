@@ -19,11 +19,11 @@ const saveFormState = throttle(() => {
 const loadFormState = () => {
   const stateForm = JSON.parse(localStorage.getItem(keyStorageInfo));
   if (stateForm) {
-    emailInput.email= stateForm.email;
-    messageInput.message = stateForm.message;
+    emailInput.email.value= stateForm.email;
+    messageInput.message.value = stateForm.message;
   } else {
-    emailInput.email = '';
-    messageInput.message = '';
+    emailInput.email.value = '';
+    messageInput.message.value = '';
   }
  
 };
@@ -44,8 +44,8 @@ form.addEventListener('submit', (event) => {
   }
 
   const formState = {
-    email: emailInput.email,
-    message: messageInput.message,
+    email: emailInput.email.value,
+    message: messageInput.message.value,
   };
    localStorage.removeItem(keyStorageInfo);
    console.log(`Form data: `,formState);

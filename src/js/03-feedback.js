@@ -48,7 +48,7 @@ form.addEventListener('submit', (event) => {
     message: messageInput.message.value,
   };
    localStorage.removeItem(keyStorageInfo);
-   console.log(`Form data: `,stateForm);
+   console.log(`Form data: `, stateForm);
    form.reset();
 });
 

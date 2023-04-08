@@ -27,10 +27,10 @@ const loadFormState = ('loadForm',() => {
   } 
 });
 
-
+ // заповнюємо поля форми зі стану в локальному сховищі при завантаженні сторінки
+ loadFormState();
 // зберігаємо стан форми в локальне сховище при введенні користувачем
 form.addEventListener('input', saveFormState);
-
 
 // оброблюємо сабміт форми
 form.addEventListener('submit', (event) => {
@@ -40,12 +40,10 @@ form.addEventListener('submit', (event) => {
     alert(`Поля Email та Message повинні бути заповнені!!!`);
     return;
   }
-    const stateForm = {
+  const stateForm = {
     email: emailInput.email.value,
     message: messageInput.message.value,
   };
-  // заповнюємо поля форми зі стану в локальному сховищі при завантаженні сторінки
-    loadFormState();
     console.log(`Form data: `, stateForm);
     form.reset();
 });

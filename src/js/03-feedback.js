@@ -44,6 +44,7 @@ form.addEventListener('submit', (event) => {
     email: emailInput.email.value,
     message: messageInput.message.value,
   };
+    localStorage.removeItem(keyStorageInfo);
     console.log(`Form data: `, stateForm);
     form.reset();
 });
